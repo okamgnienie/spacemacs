@@ -317,6 +317,9 @@ you should place your code here."
   ;; Improve cursor navigation on camelCase strings
   (global-subword-mode)
 
+  ;; Fix mode-line separator rendering
+  (setq powerline-image-apple-rgb t)
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
