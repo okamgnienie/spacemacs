@@ -320,6 +320,10 @@ you should place your code here."
   ;; Fix mode-line separator rendering
   (setq powerline-image-apple-rgb t)
 
+  ;; Use arrow keys to undo & redo
+  (global-set-key (kbd "<left>") 'undo-tree-undo)
+  (global-set-key (kbd "<right>") 'undo-tree-redo)
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
