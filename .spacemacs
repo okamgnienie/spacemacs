@@ -324,6 +324,15 @@ you should place your code here."
   (global-set-key (kbd "<left>") 'undo-tree-undo)
   (global-set-key (kbd "<right>") 'undo-tree-redo)
 
+  ;; Switch default mode-line separator to "slant"
+  (setq powerline-default-separator 'slant)
+
+  ;; Hide minor-modes on the mode-line
+  (spaceline-toggle-minor-modes-off)
+
+  ;; Compile mode-line to update its settings
+  (spaceline-compile)
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
