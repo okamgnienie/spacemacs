@@ -324,6 +324,9 @@ you should place your code here."
   (global-set-key (kbd "<left>") 'undo-tree-undo)
   (global-set-key (kbd "<right>") 'undo-tree-redo)
 
+  ;; Remove trailing whitespaces on save
+  (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
   ;; Switch default mode-line separator to "slant"
   (setq powerline-default-separator 'slant)
 
