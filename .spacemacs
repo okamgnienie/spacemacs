@@ -304,6 +304,31 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
+
+  (defun capitalize-first-char (&optional string)
+    "Capitalize only the first character of the input STRING."
+    (when (and string (> (length string) 0))
+      (let ((first-char (substring string nil 1))
+            (rest-str   (substring string 1)))
+        (concat (capitalize first-char) rest-str))))
+
+  (defun get-ticket-number (str)
+    (let ((partials (split-string str "-")))
+      (string-join
+       (list (nth 0 partials) (nth 1 partials)) "-")))
+
+  (defun get-ticket-number-from-branch-name ()
+    "Get ticket number from the current branch name.
+For example:
+bugfix/TN-1231-some-description => TN-1231
+feature/TN-1231-some-description => TN-1231
+TN-1231-some-description => TN-1231"
+    (let ((branch-partials (split-string (magit-get-current-branch) "/")))
+      (if (length branch-partials)
+          (progn (if (> (length branch-partials) 1)
+                     (get-ticket-number (nth 1 branch-partials))
+                   (get-ticket-number (nth 0 branch-partials)))))))
+
   )
 
 (defun dotspacemacs/user-config ()
