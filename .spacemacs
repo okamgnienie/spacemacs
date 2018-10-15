@@ -327,6 +327,8 @@ you should place your code here."
   ;; Remove trailing whitespaces on save
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+  (setq projectile-use-git-grep 1)
+
   ;; Switch default mode-line separator to "slant"
   (setq powerline-default-separator 'slant)
 
