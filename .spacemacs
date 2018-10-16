@@ -352,6 +352,7 @@ you should place your code here."
   ;; Remove trailing whitespaces on save
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+  ;; Multiple cursors mode key bindings
   (global-set-key (kbd "M-[") 'mc/mark-previous-like-this)
   (global-set-key (kbd "M-]") 'mc/mark-next-like-this)
 
