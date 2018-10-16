@@ -354,6 +354,9 @@ you should place your code here."
 
   (setq projectile-use-git-grep 1)
 
+  ;; Display Monday as a first day of the week in calendar
+  (setq calendar-week-start-day 1)
+
   ;; Switch default mode-line separator to "slant"
   (setq powerline-default-separator 'slant)
 
