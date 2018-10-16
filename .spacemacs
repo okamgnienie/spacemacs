@@ -58,7 +58,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(multiple-cursors)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -353,6 +353,9 @@ you should place your code here."
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
   (setq projectile-use-git-grep 1)
+
+  (global-set-key (kbd "M-[") 'mc/mark-previous-like-this)
+  (global-set-key (kbd "M-]") 'mc/mark-next-like-this)
 
   ;; Display Monday as a first day of the week in calendar
   (setq calendar-week-start-day 1)
