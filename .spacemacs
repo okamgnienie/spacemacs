@@ -352,8 +352,6 @@ you should place your code here."
   ;; Remove trailing whitespaces on save
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-  (setq projectile-use-git-grep 1)
-
   (global-set-key (kbd "M-[") 'mc/mark-previous-like-this)
   (global-set-key (kbd "M-]") 'mc/mark-next-like-this)
 
