@@ -359,6 +359,10 @@ you should place your code here."
   ;; Display Monday as a first day of the week in calendar
   (setq calendar-week-start-day 1)
 
+  ;; Better smart search w/input key binding
+  (global-set-key (kbd "M-j") 'spacemacs/helm-project-smart-do-search-region-or-symbol)
+  (define-key web-mode-map (kbd "M-j") 'spacemacs/helm-project-smart-do-search-region-or-symbol)
+
   ;; Switch default mode-line separator to "slant"
   (setq powerline-default-separator 'slant)
 
