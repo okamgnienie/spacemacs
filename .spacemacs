@@ -356,6 +356,10 @@ you should place your code here."
   (global-set-key (kbd "M-[") 'mc/mark-previous-like-this)
   (global-set-key (kbd "M-]") 'mc/mark-next-like-this)
 
+  ;; Move line/region up/down key bindings
+  (global-set-key (kbd "M-p") 'move-text-up)
+  (global-set-key (kbd "M-n") 'move-text-down)
+
   ;; Display Monday as a first day of the week in calendar
   (setq calendar-week-start-day 1)
 
