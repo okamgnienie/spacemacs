@@ -329,6 +329,24 @@ TN-1231-some-description => TN-1231"
                      (get-ticket-number (nth 1 branch-partials))
                    (get-ticket-number (nth 0 branch-partials)))))))
 
+  (defun jump-to-component-file(extension)
+    (let (filename)
+      (setq filename (split-string (buffer-file-name) "\\."))
+      (find-file
+       (concat (elt filename 0) "." (elt filename 1) "." extension))))
+
+  (defun jump-to-component-ts()
+    (interactive)
+    (jump-to-component-file "ts"))
+
+  (defun jump-to-component-html()
+    (interactive)
+    (jump-to-component-file "html"))
+
+  (defun jump-to-component-scss()
+    (interactive)
+    (jump-to-component-file "scss"))
+
   )
 
 (defun dotspacemacs/user-config ()
@@ -366,6 +384,11 @@ you should place your code here."
   ;; Better smart search w/input key binding
   (global-set-key (kbd "M-j") 'spacemacs/helm-project-smart-do-search-region-or-symbol)
   (define-key web-mode-map (kbd "M-j") 'spacemacs/helm-project-smart-do-search-region-or-symbol)
+
+  ;; Key bindings for movement between angular component files
+  (global-set-key (kbd "M-m j t") 'jump-to-component-ts)
+  (global-set-key (kbd "M-m j h") 'jump-to-component-html)
+  (global-set-key (kbd "M-m j c") 'jump-to-component-scss)
 
   ;; Switch default mode-line separator to "slant"
   (setq powerline-default-separator 'slant)
