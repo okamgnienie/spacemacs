@@ -540,6 +540,9 @@ before packages are loaded."
             (lambda ()
               (setq web-mode-attr-indent-offset nil)))
 
+  ;; Turn on golden-ratio by default
+  (spacemacs/toggle-golden-ratio-on)
+
   ;; Switch default mode-line separator to "slant"
   (setq powerline-default-separator 'slant)
 
