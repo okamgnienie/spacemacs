@@ -535,6 +535,11 @@ before packages are loaded."
   (global-set-key (kbd "M-m j h") 'jump-to-component-html)
   (global-set-key (kbd "M-m j c") 'jump-to-component-scss)
 
+  ;; Force web-mode to align attributes while indenting the html code
+  (add-hook 'web-mode-hook
+            (lambda ()
+              (setq web-mode-attr-indent-offset nil)))
+
   ;; Switch default mode-line separator to "slant"
   (setq powerline-default-separator 'slant)
 
