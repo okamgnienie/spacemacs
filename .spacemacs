@@ -543,6 +543,11 @@ before packages are loaded."
   ;; Turn on golden-ratio by default
   (spacemacs/toggle-golden-ratio-on)
 
+  ;; Disable C-f key binding used in magit-gitflow
+  (add-hook 'magit-gitflow-mode-hook
+            (lambda ()
+              (define-key magit-gitflow-mode-map (kbd "C-f") nil)))
+
   ;; Switch default mode-line separator to "slant"
   (setq powerline-default-separator 'slant)
 
