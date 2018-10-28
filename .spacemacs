@@ -543,6 +543,9 @@ before packages are loaded."
   ;; Switch default mode-line separator to "slant"
   (setq powerline-default-separator 'slant)
 
+  ;; Fix mode-line separator rendering
+  (setq powerline-image-apple-rgb nil)
+
   ;; Hide minor-modes on the mode-line
   (spaceline-toggle-minor-modes-off)
 
