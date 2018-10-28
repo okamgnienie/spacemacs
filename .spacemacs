@@ -529,7 +529,6 @@ before packages are loaded."
 
   ;; Better smart search w/input key binding
   (global-set-key (kbd "M-j") 'spacemacs/helm-project-smart-do-search-region-or-symbol)
-  (define-key web-mode-map (kbd "M-j") 'spacemacs/helm-project-smart-do-search-region-or-symbol)
 
   ;; Key bindings for movement between angular component files
   (global-set-key (kbd "M-m j t") 'jump-to-component-ts)
