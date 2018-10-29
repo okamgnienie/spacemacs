@@ -544,6 +544,9 @@ before packages are loaded."
   ;; Fix mode-line separator rendering
   (setq powerline-image-apple-rgb t)
 
+  ;; Increase helm buffer max length
+  (setq helm-buffer-max-length 70)
+
   ;; Use arrow keys to undo & redo
   (global-set-key (kbd "<left>") 'undo-tree-undo)
   (global-set-key (kbd "<right>") 'undo-tree-redo)
