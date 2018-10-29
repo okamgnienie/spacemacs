@@ -587,6 +587,9 @@ before packages are loaded."
             (lambda ()
               (define-key magit-gitflow-mode-map (kbd "C-f") nil)))
 
+  ;; Set cursor to be always in the middle of the screen
+  (spacemacs/toggle-centered-point-globally-on)
+
   ;; Switch default mode-line separator to "slant"
   (setq powerline-default-separator 'slant)
 
