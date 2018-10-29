@@ -487,6 +487,41 @@ TN-1231-some-description => TN-1231"
     (interactive)
     (jump-to-component-file "scss"))
 
+  (defun ng2--counterpart-name (file)
+    "Return the file name of FILE's counterpart, or FILE if there is no counterpart."
+    (when (not (ng2--is-component file)) file)
+    (let ((ext (file-name-extension file))
+          (base (file-name-sans-extension file)))
+      (if (equal ext "ts")
+          (concat base ".html")
+        (concat base ".ts"))))
+
+  (defun ng2--sans-type (file)
+    "Return the FILE's basename, sans its extensions."
+    (file-name-sans-extension (file-name-sans-extension file)))
+
+  (defun ng2--is-component (file)
+    "Return whether FILE is a component file."
+    (equal (file-name-extension (file-name-sans-extension file)) "component"))
+
+  (defun ng2-open-counterpart ()
+    "Opens the corresponding template or component file to this one."
+    (interactive)
+    (find-file (ng2--counterpart-name (buffer-file-name))))
+
+  (defun ng2-html-goto-binding ()
+    "Opens the corresponding component TypeScript file, then places the cursor at the function corresponding to the binding."
+    (interactive)
+    (let ((fn-name (symbol-at-point)))
+      (ng2-open-counterpart)
+      (ng2-ts-goto-fn fn-name)))
+
+  (defun ng2-ts-goto-fn (fn-name)
+    "Places the point on the function called FN-NAME."
+    (goto-char (point-min))
+    (search-forward-regexp (format "%s\(.*\).*{" fn-name))
+    (recenter))
+
   )
 
 (defun dotspacemacs/user-load ()
@@ -537,10 +572,12 @@ before packages are loaded."
 
   ;; Force web-mode to align attributes while indenting the html code
   ;; Remove underline from matching pairs in web-mode
+  ;; Bind goto function declaration from component template
   (add-hook 'web-mode-hook
             (lambda ()
               (setq web-mode-attr-indent-offset nil)
-              (face-remap-add-relative 'sp-show-pair-match-face '(:underline nil))))
+              (face-remap-add-relative 'sp-show-pair-match-face '(:underline nil))
+              (local-set-key (kbd "M-.") 'ng2-html-goto-binding)))
 
   ;; Turn on golden-ratio by default
   (spacemacs/toggle-golden-ratio-on)
