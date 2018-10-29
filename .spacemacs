@@ -536,9 +536,11 @@ before packages are loaded."
   (global-set-key (kbd "M-m j c") 'jump-to-component-scss)
 
   ;; Force web-mode to align attributes while indenting the html code
+  ;; Remove underline from matching pairs in web-mode
   (add-hook 'web-mode-hook
             (lambda ()
-              (setq web-mode-attr-indent-offset nil)))
+              (setq web-mode-attr-indent-offset nil)
+              (face-remap-add-relative 'sp-show-pair-match-face '(:underline nil))))
 
   ;; Turn on golden-ratio by default
   (spacemacs/toggle-golden-ratio-on)
