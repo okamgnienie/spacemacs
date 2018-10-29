@@ -600,7 +600,7 @@ before packages are loaded."
   (setq powerline-height 18)
 
   ;; Set more subtle color for the spaceline-python-venv
-  (setq spaceline-python-venv ((t (:foreground "#b2b2b2"))))
+  (set-face-foreground 'spaceline-python-venv "#b2b2b2")
 
   ;; Hide minor-modes on the mode-line
   (spaceline-toggle-minor-modes-off)
