@@ -573,6 +573,10 @@ before packages are loaded."
   (global-set-key (kbd "M-m j h") 'jump-to-component-html)
   (global-set-key (kbd "M-m j c") 'jump-to-component-scss)
 
+  ;; Set faster key bindings for jumping around
+  (global-set-key (kbd "C-l") 'avy-goto-char)
+  (global-set-key (kbd "M-l") 'avy-goto-line)
+
   ;; Force web-mode to align attributes while indenting the html code
   ;; Remove underline from matching pairs in web-mode
   ;; Bind goto function declaration from component template
