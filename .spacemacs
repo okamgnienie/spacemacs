@@ -590,6 +590,11 @@ before packages are loaded."
             (lambda ()
               (define-key magit-gitflow-mode-map (kbd "C-f") nil)))
 
+  ;; Fix golden-ratio when opening magit status buffer
+  (define-advice select-window (:after (window &optional no-record) golden-ratio-resize-window)
+    (golden-ratio)
+    nil)
+
   ;; Set cursor to be always in the middle of the screen
   (spacemacs/toggle-centered-point-globally-on)
 
