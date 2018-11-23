@@ -547,6 +547,17 @@ before packages are loaded."
   ;; Increase helm buffer max length
   (setq helm-buffer-max-length 70)
 
+  ;; Keep cursor in (relatively) the same place while scrolling
+  (global-set-key (kbd "C-v")
+                  (lambda () (interactive)
+                    (condition-case nil (scroll-up)
+                      (end-of-buffer (goto-char (point-max))))))
+
+  (global-set-key (kbd "M-v")
+                  (lambda () (interactive)
+                    (condition-case nil (scroll-down)
+                      (beginning-of-buffer (goto-char (point-min))))))
+
   ;; Use arrow keys to undo & redo
   (global-set-key (kbd "<left>") 'undo-tree-undo)
   (global-set-key (kbd "<right>") 'undo-tree-redo)
